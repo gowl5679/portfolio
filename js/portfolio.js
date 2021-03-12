@@ -16,39 +16,32 @@ $(document).ready(function () {
         if ($(this).is('#wavebtn1')) {
             animation(7, '#go img', 'svg/1go/door_', 130);
             animationRepeat(8, '#castle img#magic', 'svg/2castle/MagicCastle_', 145);
-        }
-        else if ($(this).is('#wavebtn3')) {
+        } else if ($(this).is('#wavebtn3')) {
             $('#self .area').addClass('in');
             transitionDelay();
-        }
-        else if ($(this).is('#wavebtn4')) {
+        } else if ($(this).is('#wavebtn4')) {
             animation(9, '#self #poster', 'svg/4self/poster_', 150);
             $('#wavebtn4').prev('#speech').fadeOut(800);
             $('#main .area').addClass('in');
             transitionDelay();
-        }
-        else if ($(this).is('#wavebtn5')) {
+        } else if ($(this).is('#wavebtn5')) {
             animation(13, '#main #window', 'svg/5mainpage/window_', 135);
             $('#detail .area').addClass('in');
             transitionDelay();
-        }
-        else if ($(this).is('#wavebtn6')) {
+        } else if ($(this).is('#wavebtn6')) {
             $('#product .area').addClass('in');
             transitionDelay();
-        }
-        else if ($(this).is('#wavebtn7')) {
+        } else if ($(this).is('#wavebtn7')) {
             $('#acter7').addClass('move');
             setTimeout(function () {
                 $('#event .area').addClass('in');
                 transitionDelay();
             }, 1000);
-        }
-        else if ($(this).is('#wavebtn8')) {
+        } else if ($(this).is('#wavebtn8')) {
             animation(11, '#event #pump', 'svg/8event/pumpkin_', 130);
             $('#goal .area').addClass('in');
             transitionDelay();
-        }
-        else if ($(this).is('#wavebtn9')) {
+        } else if ($(this).is('#wavebtn9')) {
             animation(13, '#goal #acter9', 'svg/9goal/character9_', 130);
             $('#end .area').addClass('in');
             transitionDelay();
@@ -162,7 +155,8 @@ $(document).ready(function () {
             timer = animationRepeat(8, '#castle img#magic', 'svg/2castle/Magic castle_', 145)
         } else {
             clearTimeout(timer);
-        }s
+        }
+        s
     });
 
     /* 모달 */
@@ -251,6 +245,5 @@ $(document).ready(function () {
             //console.log(e.keyCode); //27
             if (e.keyCode === 27) _closeBtn.click();
         });
-
     });
 });
