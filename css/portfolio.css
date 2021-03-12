@@ -67,15 +67,15 @@ ul, li {list-style: none;}
 .nav .navbox {display: flex; width: 1000px;}
 .nav .navbox .logo {margin-right: 20px;}
 .nav .navbox .logo img {width: 140px;}
-#gnb {width: 600px; height: 70px;}
-#gnb ul {display: flex;}
-#gnb ul li a {display: block; width: 100px; height: 65px; text-align: center; line-height: 65px; font-size: 18px; color: #fff;}
+.gnb {width: 600px; height: 70px;}
+.gnb ul {display: flex;}
+.gnb ul li a {display: block; width: 100px; height: 65px; text-align: center; line-height: 65px; font-size: 18px; color: #fff;}
 /* 가상선택자 도형 */
-#gnb ul li {position: relative;}
-#gnb ul li::after {content: ""; position: absolute; top: 43%; right: 0; width: 6px; height: 6px; background: #fff; transform: rotate(45deg); opacity: 0.7;}
-#gnb ul li:nth-child(2) {padding: 0 7px;}
-#gnb ul li:nth-child(4) {padding: 0 20px;}
-#gnb ul li:not(.dpchange)::after {display: none;}
+.gnb ul li {position: relative;}
+.gnb ul li::after {content: ""; position: absolute; top: 43%; right: 0; width: 6px; height: 6px; background: #fff; transform: rotate(45deg); opacity: 0.7;}
+.gnb ul li:nth-child(2) {padding: 0 7px;}
+.gnb ul li:nth-child(4) {padding: 0 20px;}
+.gnb ul li:not(.dpchange)::after {display: none;}
 
 /* 로고와 소개글 */
 #cosmic {width: 1000px; top: 100px; left: -217px; z-index: 980; animation: scale1 6s alternate ease-out;}
