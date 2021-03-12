@@ -289,7 +289,7 @@ ul, li {list-style: none;}
 #txtbox2 #btn3 {top: 295px; left: 275px;}
 #txtbox2 #btn4 {top: 295px; left: 389px;}
 #txtbox2 #btn5 {top: 295px; left: 503px;}
-.mdopen_btn:hover {mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%); mask-size: 200%; animation: shine 2s infinite ease-out alternate; box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.746);}
+.mdopen_btn:hover {mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%); mask-size: 200%; animation: shine 1.5s infinite ease-out alternate; box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.746);}
   
 @keyframes shine {
     0% {-webkit-mask-position: 150%;}
