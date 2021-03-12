@@ -1,0 +1,454 @@
+@charset "utf-8";
+/*  */
+
+/* 태그 초기화 */
+* {margin: 0; padding: 0;} 
+img {vertical-align: top; border: none;}
+button {margin: 0; padding: 0; border: none; background: none; font-size: 100%;}
+a:link, a:visited, a:hover, a:active {text-decoration: none;}
+ul, li {list-style: none;}
+
+/* 공통 클래스 */
+.scene {position: fixed; top: 0; left: 0; width: 100%; height: 100vh; font-family: 'NanumSquare', sans-serif;}
+.area {position: relative;}
+
+/* -------------------------로딩페이지------------------------- */
+#go {display: flex; justify-content: center; align-items: center; background: #F6E7A9; z-index: 1100; /* display: none; */}
+#go img {width: 696px;}
+       
+/* wave 버튼효과 */
+.wavebtn {position: absolute; transform: translateX(-50%); width: 80px; height: 80px;}
+#wavebtn1 {top: 70px; left: 49%;}
+.wavebtn .txt, .wavebtn .circle {display: block;}
+.wavebtn .txt {position: absolute; top: -10px; left: 2px; line-height: 10px; width: 100%; text-align: center; color: #fff; animation: animate 1.3s infinite alternate;}
+
+@keyframes animate {
+    0% {transform: translate(0,-10px);}
+    100% {transform: translate(0,10px);}
+}
+
+.circle {position: relative; width: 80px; height: 80px;}
+.circle span {position: absolute; left: 0; right: 0; margin: 0 auto; border-radius: 50%;}
+.circle .c1 {border: 1px solid #fff; background: none;}
+.circle .c2 {border: 2px solid #fff; background: none;}
+.circle .c3 {background: #fff; cursor: pointer;}
+.circle .c4 {background: #fff; cursor: pointer; filter : blur(3px);}
+
+/* top, widht, height, animation */
+.circle .c1 {top: 0; width: 100%; height: 100%; animation: wave1 1.7s linear infinite;}
+
+.circle .c2 {top: calc(100% / 6); width: calc(100% * 2/3); height: calc(100% * 2/3); animation: wave2 1.7s linear infinite;}
+
+/* 애니메이션 없이 가운데 고정 되어 있다 */
+.circle .c3 {top: calc(100% / 2.3); width: calc(100% * 1/6); height: calc(100% * 1/6);}
+.circle .c4 {top: calc(100% / 2.3); width: calc(100% * 1/6); height: calc(100% * 1/6);}
+
+/* .c1 */
+@keyframes wave1 {
+    0% {transform: scale(0); opacity: 1;}
+    50% {transform: scale(1.2); opacity: 0;}
+    /* 2초 중에서 1초 동안만 크기가 변화, 나머지 1초는 유지 */
+    100% {transform: scale(1.2); opacity: 0;}
+}
+
+/* .c2 */
+@keyframes wave2 {
+    0% {transform: scale(0); opacity: 1;}
+    100% {transform: scale(1.2); opacity: 0;}
+}
+
+/* -------------------------처음페이지------------------------- */
+#castle {display: flex; justify-content: center; align-items: flex-end; z-index: 1000; background: url("../svg/2-2castle/background.svg") no-repeat center; 
+    -webkit-background-size: cover; -moz-background-size: cover;-o-background-size: cover; background-size: cover; /* display: none; */}
+#castle img#magic {position: relative; width: 565px; z-index: 970;}
+
+/* 네비게이션 */
+.nav {position: absolute; top: 8%; left: 4%; z-index: 990;}
+.nav .navbox {display: flex; width: 1000px;}
+.nav .navbox .logo {margin-right: 20px;}
+.nav .navbox .logo img {width: 140px;}
+#gnb {width: 600px; height: 70px;}
+#gnb ul {display: flex;}
+#gnb ul li a {display: block; width: 100px; height: 65px; text-align: center; line-height: 65px; font-size: 18px; color: #fff;}
+/* 가상선택자 도형 */
+#gnb ul li {position: relative;}
+#gnb ul li::after {content: ""; position: absolute; top: 43%; right: 0; width: 6px; height: 6px; background: #fff; transform: rotate(45deg); opacity: 0.7;}
+#gnb ul li:nth-child(2) {padding: 0 7px;}
+#gnb ul li:nth-child(4) {padding: 0 20px;}
+#gnb ul li:not(.dpchange)::after {display: none;}
+
+/* 로고와 소개글 */
+#cosmic {width: 1000px; top: 100px; left: -217px; z-index: 980; animation: scale1 6s alternate ease-out;}
+#cosmic img {width: 200px; margin: 22px 40%;}
+#cosmic p {font-size: 17px; line-height: 24px; text-align: center; color: #fff; text-shadow: 0px 0px 5px #0e0b07;}
+
+/* #cosmic */
+@keyframes scale1 {
+    0% {transform: scale(0); opacity: 0;}
+    50% {transform: scale(0); opacity: 0;}
+    100% {transform: scale(1); opacity: 1;}
+}
+
+/* wave 버튼위치 */
+#wavebtn2 {top: 520px; left: 50.4%; z-index: 970;}
+
+/* 공통 클래스 */
+.bg_rear {display: flex;}
+.ads {position: absolute;}
+
+/* 뒷 배경 산등성이 */
+#mount1 {width: 690px; left: 85%; bottom: -5%; z-index: 950;}
+#mount2 {width: 600px; left: -100%; bottom: -5%; z-index: 940;}
+#mount3 {width: 600px; left: 107%; bottom: 28%; z-index: 930;}
+#mount4 {width: 500px; left: -105%; bottom: 27%; z-index: 920;}
+
+/* 뒷 배경 구름 */
+#bg_cloud .float {animation-duration: 6s; animation-fill-mode: forwards; animation-timing-function: ease-out; animation-name: Float, FadeIn;}
+#bg_cloud .float2 {animation-duration: 6s; animation-fill-mode: forwards; animation-timing-function: ease-out; animation-name: Float2, FadeIn;}
+#cloud1 {width: 500px; left: -150%; bottom: 30%; z-index: 910;}
+#cloud2 {width: 500px; left: 160%; bottom: 28%; z-index: 930;}
+#cloud3 {width: 260px; left: -35%; bottom: 35%; z-index: 920;}
+#cloud4 {width: 260px; left: 90%; bottom: 31%; z-index: 930;}
+#cloud5 {width: 160px; left: -76%; bottom: 44%; z-index: 910;}
+#cloud6 {width: 140px; left: 142%; bottom: 47%; z-index: 910;}
+#cloud7 {width: 110px; left: -42%; bottom: 55%; z-index: 910;}
+#cloud8 {width: 280px; left: 70%; bottom: 53%; z-index: 930;}
+#cloud9 {width: 250px; left: -10%; bottom: 65%; z-index: 910;}
+#cloud10 {width: 85px; left: 92%; bottom: 75%; z-index: 910;}
+#cloud11 {width: 195px; left: 60%; bottom: 80%; z-index: 910;}
+#cloud12 {width: 110px; left: 20%; bottom: 90%; z-index: 910;}
+
+/* #bg_cloud .float,  #bg_cloud .float2 */
+@keyframes FadeIn {
+    0% {opacity: 0;}
+    50% {opacity: 0.3;}
+    100% {opacity: 1;}
+}
+
+/* #bg_cloud .float  */
+@keyframes Float {
+    0%  {}
+    50% {transform: translateX(20%) translateZ(0);}
+    100% {transform: translateX(-30%) translateZ(0);}
+}
+
+/* #bg_cloud .float2 */
+@keyframes Float2 {
+    0% {}
+    50% {transform: translateX(-20%) translateZ(0);}
+    100% {transform: translateX(30%) translateZ(0);}
+}
+
+/* -------------------------스킬페이지------------------------- */
+#space {display: flex; justify-content: center; z-index: 900; background: linear-gradient(#131714, #412F2F); /* display: none */;}
+#space img#char {width: 600px; left: -290px; bottom: 60px;}
+
+/* 스킬 마법효과 */
+#sk {left: -21px; top: 294px;}
+.fontStyle {font-size: 18px; font-weight: 900; color: #332F2F; letter-spacing: -0.5px; z-index: 900;}
+#spaceNot {width: 300px; left: -145px; top: 150px; z-index: 880;}
+#spaceLight {opacity: 0.5; width: 200px; height: 200px; border-radius: 50%; left: -95px; top: 190px; background: #df7a27c5; filter: blur(30px); animation: light 3s infinite ease-out;}
+#spaceMove {width: 127px; left: -60.6px; top: 239px; animation: spin 4s infinite linear;}
+#spaceMove2 {width: 147px; left: -71px; top: 230px; animation: spin 7s infinite linear;}
+#spaceMove3 {width: 240px; height: 240px; left: -115px; top: 180px; border-radius: 50%; border: 1px solid #c4c29d; animation: spin3D 4s infinite linear;}
+#spaceMove3-2 {width: 240px; height: 240px; left: -115px; top: 180px; border-radius: 50%; border: 1px solid #c4c29d; animation: spin3D_3 4s infinite linear;}
+#spaceMove4 {width: 170px; height: 170px; left: -84px; top: 216px; border-radius: 50%; border: 1px solid #c4c29d; animation: spin3D_2 2s infinite linear;}
+#spaceMove4-2 {width: 170px; height: 170px; left: -84px; top: 216px; border-radius: 50%; border: 1px solid #c4c29d; animation: spin3D_4 2s infinite linear;}
+
+/* #spaceMove, #spaceMove2 */
+@keyframes spin {
+    0% {transform: rotate(0);}
+    100% {transform: rotate(360deg);}
+}
+
+/* #spaceLight */
+@keyframes light {
+    0% {opacity: 0.5; transform: scale(0.7deg)}
+    50% {opacity: 0.1; transform: scale(1.2deg)}
+    100% {opacity: 0.5; transform: scale(0.7deg)}
+}
+
+/* #spaceMove3 */
+@keyframes spin3D {
+    0% {transform: rotate3d(.5,.5,.5, 360deg);}
+    100% {transform: rotate3d(0deg);}
+}
+
+/* #spaceMove4 */
+@keyframes spin3D_2 {
+    0% { transform: rotate3d(.3,.3,.3, 360deg);}
+    100% {transform: rotate3d(0deg);}
+}
+
+/* #spaceMove3-2 */
+@keyframes spin3D_3 {
+    0% {transform: rotate3d(0deg);}
+    100% {transform: rotate3d(.5,.5,.5, 360deg);}
+}
+
+/* #spaceMove4-2 */
+@keyframes spin3D_4 {
+    0% {transform: rotate3d(0deg);}
+    100% {transform: rotate3d(.3,.3,.3, 360deg);}
+}
+
+/* 스킬정렬 버튼효과 */
+.wave2 {position: absolute; transform: translateX(-50%); width: 300px; height: 300px; z-index: 905;}
+#wave {top: 150px; left: 0;}
+.wave2 .letter, .wave2 .circl {display: block;}
+.wave2 .letter {position: absolute; top: 30px; left: 8px; line-height: 10px; width: 100%; text-align: center; color: #fbfceb; letter-spacing: 8px; animation: animate 1.3s infinite alternate;}
+
+@keyframes animate {
+    0% {transform: translate(0,0);}
+    100% {transform: translate(0,15px);}
+}
+
+.circl {width: 50%; height: 100px; display: flex; justify-content: center; align-items: center;}
+.circl span {position: absolute; left: 0; right: 0; margin: 0 auto; border-radius: 50%;}
+.circl .cc1 {border: 2px solid #fbfceb; box-shadow: 0px 0px 7px #ffffffd8; cursor: pointer}
+.circl .cc2 {border: 2px solid #fbfceb; box-shadow: 0px 0px 7px #ffffffd8; cursor: pointer}
+.circl .cc3 {border: 2px solid #fbfceb; box-shadow: 0px 0px 7px#ffffffd8; cursor: pointer}
+
+/* top, widht, height, animation */
+.circl .cc1 {top: 0; width: 100%; height: 100%; animation: pulse-me 2s ease-in infinite;}
+
+.circl .cc2 {top: calc(100% / 8); width: calc(100% * 3/4); height: calc(100% * 3/4); animation: pulse-me 2s 0.3s ease-in infinite; opacity: 0;}
+
+.circl .cc3 {top: calc(100% / 4); width: calc(100% * 2/4); height: calc(100% * 2/4); animation: pulse-me 2s 0.6s ease-in infinite; opacity: 0;}
+
+
+/* .circl .cc2, .circl .cc3 */
+@keyframes pulse-me {
+    0% {transform: scale(0.5); opacity: 0;}
+    50% {opacity: 0.5;}
+    70% {opacity: 0.2;}
+    100% {transform: scale(1.6); opacity: 0;}
+}
+  
+/* 스킬정렬 버튼 */
+#skill .other-circle {transform: translateX(0); position: absolute; width: 147px; border-radius: 100%; opacity: 0; transition: 0.6s; transform: translateX(0);}
+#skill .pa {width: 147px; left: -68px; top: 230px; animation: ani 1.5s infinite alternate;}
+
+/* #skill .pa */
+@keyframes ani {
+    0% {transform:translate(0,0) rotate(-4deg);}
+    100% {transform:translate(0,10px) rotate(4deg);}
+}
+
+/* wave 버튼위치 */
+#wavebtn3 {bottom: 305px; left: 206px; transition: 6.5s; opacity: 0;}
+#heart {width: 70px; bottom: 310px; left: 170px; transition: 6.5s; opacity: 0;}
+.op {display: none;}
+.point {cursor: pointer;}
+.ls {letter-spacing: 5px;}
+.wavebtn .txt2, .wavebtn .circle {display: block;}
+.wavebtn .txt2 {position: absolute; top: -10px; left: 5px; line-height: 10px; width: 100%; text-align: center; color: #fff;}
+
+/* fade in effect 공통 스타일 정리 */
+.fade .effect {opacity: 0; transform: translateY(100px); transition: all 0.5s ease-out;}
+.fade.in .effect {opacity: 1; transform: translateY(0);}
+
+/* -------------------------자기소개 페이지------------------------- */
+#self {display: flex; justify-content: center; z-index: 800; background: linear-gradient(#2F4040, #595F4E); /* display: none; */}
+#poster {width: 800px; top: 250px; left: 40px;}
+#speech {width: 148px; top: 450px; left: -50px; z-index: 780;}
+
+/* wave 버튼위치 */
+#wavebtn4 {top: 384px; right: 0; z-index: 790;}
+.wid {width: 200px; height: 200px;}
+.wavebtn .txt3, .wavebtn .circle {display: block;}
+.wavebtn .txt3 {position: absolute; top: -10px; left: 64px; line-height: 10px; width: 100%; text-align: center; color: #fff; animation: animate 1.3s infinite alternate;}
+
+/* 글 */
+#txtbox {width: 550px; top: 250px; right: 160px;}
+#txtbox li {margin-bottom: 100px; color: #fff;}
+#txtbox li h3 {font-size: 40px; font-weight: 700; margin-bottom: 13px; transition: 1.3s;}
+#txtbox li p {font-size: 15px; line-height: 24px; opacity: 0.7; transition: 1.3s;}
+
+/* -------------------------작업물 메인페이지------------------------- */
+#main {display: flex; justify-content: left; z-index: 700; background: #000;/*  display: none; */}
+#window {width: 400px; left: 320px; bottom: 0;}
+#shelf {width: 700px; left: 170px; bottom: 0;}
+#acter5 {width: 390px; left: 320px; bottom: 0;}
+
+/* wave 버튼위치 */
+#wavebtn5 {top: 180px; left: 420px; z-index: 700;}
+
+/* 글 */
+#txtbox2 {position: relative; color: #fff; text-align: right; width: 570px; top: 350px; left: 1130px;}
+#txtbox2 li span {display: block; font-size: 24px; margin-bottom: 10px;}
+#txtbox2 li h2 {font-size: 60px; font-weight: 700; margin-bottom: 30px;}
+#txtbox2 li .p_1 {font-size: 17px; line-height: 26px; margin-bottom: 60px; opacity: 0.7;}
+#txtbox2 li .font {display: flex; justify-content: space-between;}
+#txtbox2 li .after {float: left; width: 130px; text-align: center; height: 60px; font-size: 14px;}
+
+/* 모달 버튼 위치 */
+.mdopen_btn {width: 20px; height: 20px; background: #fff; cursor: pointer; transform: rotate(45deg); box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.746);}
+#txtbox2 #btn1 {top: 295px; left: 47px;}
+#txtbox2 #btn2 {top: 295px; left: 161px;}
+#txtbox2 #btn3 {top: 295px; left: 275px;}
+#txtbox2 #btn4 {top: 295px; left: 389px;}
+#txtbox2 #btn5 {top: 295px; left: 503px;}
+.mdopen_btn:hover {-webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%); -webkit-mask-size: 200%; animation: shine 1.5s infinite ease-out alternate; box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.746);}
+  
+@-webkit-keyframes shine {
+    0% {-webkit-mask-position: 150%;}
+    100% {-webkit-mask-position: -50%; transform: translateY(10px) rotate(45deg);}
+}
+
+/* 열려질 상세 모달 */
+#dim, .md_cnt {position: fixed; z-index: 700;}
+#dim {/* display: none; */ top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,.5);}
+.md_cnt {width: 1400px; height: 750px; visibility: hidden; background: #fff; padding: 50px;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+.md_cnt .mdclose_btn {position: absolute; right: 15px; top: 15px; width: 70px; height: 70px; cursor: pointer;}
+.md_cnt .mdclose_btn .border_1 {position: absolute; top: 0; width: 2px; height: 70px; transform: rotate(45deg); background: #000;}
+.md_cnt .mdclose_btn .border_2 {position: absolute; top: 0; width: 2px; height: 70px; transform: rotate(-45deg); background: #000;}
+
+/* -------------------------작업물 상세페이지------------------------- */
+#detail {display: flex; justify-content: center; z-index: 600; background: linear-gradient(-90deg,#141E21, #2F3D35); /* display: none; */}
+#bottle {width: 850px; top: 190px; left: -50px;}
+#wavebtn6 {top: 530px; right: -360px; z-index: 590;}
+.wavebtn .txt4, .wavebtn .circle {display: block;}
+.wavebtn .txt4 {position: absolute; top: 76px; left: 5px; line-height: 10px; width: 100%; text-align: center; color: #fff;}
+
+/* Smoke container */
+#smoke {position: absolute; width: 1px; height: 160px; left: 290px; top: 470px; z-index: 580;}
+
+/* smoke balls */
+#smoke span {display: block; position: absolute; left: 200px; top: 40px; margin-left:-20px; height: 0px; width: 0px; border: 65px solid #F4FC1B; border-radius: 50%; left: -14px; opacity: 0; transform: scale(0.2)}
+
+/* Smoke animation */
+@keyframes smokeL {
+	0%   {transform: scale(0.2) translate(0, 0);}
+	10%  {opacity: 1; transform: scale(0.2) translate(0, -5px);}
+	100% {opacity: 0; transform: scale(1) translate(-20px, -200px);}
+}
+
+@keyframes smokeR {
+	0%   {transform: scale(0.2) translate(0, 0);}
+	10%  {opacity: 1; transform: scale(0.2) translate(0, -5px);}
+	100% {opacity: 0; transform: scale(1) translate(20px, -200px);}
+}
+
+#smoke .s0 {animation: smokeL 10s 0s infinite}
+#smoke .s1 {animation: smokeR 10s 1s infinite}
+#smoke .s2 {animation: smokeL 10s 2s infinite}
+#smoke .s3 {animation: smokeR 10s 3s infinite}
+#smoke .s4 {animation: smokeL 10s 4s infinite}
+#smoke .s5 {animation: smokeR 10s 5s infinite}
+#smoke .s6 {animation: smokeL 10s 6s infinite}
+#smoke .s7 {animation: smokeR 10s 7s infinite}
+#smoke .s8 {animation: smokeL 10s 8s infinite}
+#smoke .s9 {animation: smokeR 10s 9s infinite}
+
+/* 글 */
+.txtbox3 {position: relative; color: #fff; text-align: left; width: 570px; margin: 340px 0 0 -700px;}
+.txtbox3 li span {display: block; font-size: 24px; margin-bottom: 10px;}
+.txtbox3 li h2 {font-size: 60px; font-weight: 700; margin-bottom: 30px;}
+.txtbox3 li .p_1 {font-size: 17px; line-height: 26px; margin-bottom: 60px; opacity: 0.7;}
+.txtbox3 li .after {position: absolute; width: 130px; text-align: center; height: 60px; font-size: 14px;}
+.txtbox3 li .p_2 {left: -48px;}
+.txtbox3 li .p_3 {left: 67px;}
+.txtbox3 li .p_4 {left: 180px;}
+.txtbox3 li .p_5 {left: 295px;}
+
+/* 모달 버튼 위치 */
+.txtbox3 #btn1-2 {top: 295px; left: 7px;}
+.txtbox3 #btn2-2 {top: 295px; left: 121px;}
+.txtbox3 #btn3-2 {top: 295px; left: 235px;}
+.txtbox3 #btn4-2 {top: 295px; left: 349px;}
+
+/* -------------------------제품광고포스터 페이지------------------------- */
+#product {display: flex; justify-content: center; z-index: 500; background: linear-gradient(130deg,#775172,#FCB16E,#FCB16E); /* display: none; */}
+#start {position: relative; width: 1300px; top: -20px; left: 315px; z-index: 480;}
+#arrive {width: 880px; left: -280px; bottom: -5px; z-index: 490;}
+#acter7 {width: 72px; left: 534px; top: 267px; z-index: 490; animation: animate2 1.3s infinite alternate;}
+#acter7.move {animation: arrive 2s forwards;}
+#shine {width: 104px; left: 14px; bottom: 226px; z-index: 495;}
+
+@keyframes animate2 {
+    0% {transform: translate(0,-6px);}
+    100% {transform: translate(0,6px);}
+}
+
+@keyframes arrive {
+    0% {transform: translate(0,0);}
+    100% {transform: translate(-500px,300px);}
+}
+
+/* wave 버튼위치 */
+.wavebtn .tx, .wavebtn .circle {display: block;}
+.wavebtn .tx {position: absolute; top: 36px; left: 60px; line-height: 10px; width: 100%; text-align: center; color: #fff;}
+#wavebtn7 {top: 310px; left: 525px; z-index: 500;}
+
+/* 뒤에 산배경 */
+#bg {top: 120px; left: -310px;}
+#bg #big_mt {top: 0; left: 0; width: 2250px; z-index: 440;}
+#bg #small_mt1 {top: 300px; left: 70px; width: 560px; z-index: 470;}
+#bg #small_mt2 {top: 300px; left: 180px; width: 60px; z-index: 460;}
+#bg #small_mt3 {top: 243px; left: 260px; width: 270px; z-index: 450;}
+
+#bg_clou {top: 200px; left: 130px;}
+#bg_clou #bg_clou1 {width: 169px; top: 200px; left: 23px; z-index: 460;}
+#bg_clou #bg_clou2 {width: 169px; top: 10px; left: 23px; z-index: 460;}
+#bg_clou #bg_clou3 {width: 80px; top: 20px; left: 23px; z-index: 460;}
+#bg_clou #bg_clou4 {width: 80px; top: 30px; left: 23px; z-index: 460;}
+#bg_clou #bg_clou5 {width: 33px; top: 40px; left: 23px; z-index: 460;}
+#bg_clou #bg_clou6 {width: 116px; top: 50px; left: 23px; z-index: 460;}
+#bg_clou #bg_clou7 {width: 63px; top: 60px; left: 23px; z-index: 460;}
+
+/* 글 */
+#txtbox4 {color: #fff; text-align: right; width: 570px; top: 500px; left: 930px; z-index: 500;}
+#txtbox4 li span {display: block; font-size: 24px; margin-bottom: 10px;}
+#txtbox4 li h2 {width: 570px; font-size: 60px; font-weight: 700; margin-bottom: 30px;}
+#txtbox4 li .p_1 {font-size: 17px; line-height: 26px; margin-bottom: 60px; opacity: 0.7;}
+#txtbox4 li .after {position: absolute; width: 130px; text-align: center; height: 60px; font-size: 14px;}
+#txtbox4 li .p_2 {right: -48px;}
+#txtbox4 li .p_3 {right: 67px;}
+#txtbox4 li .p_4 {right: 180px;}
+#txtbox4 li .p_5 {right: 295px;}
+
+/* 모달 버튼 위치 */
+#txtbox4 #btn1-2 {top: 295px; right: 7px;}
+#txtbox4 #btn2-2 {top: 295px; right: 121px;}
+#txtbox4 #btn3-2 {top: 295px; right: 235px;}
+#txtbox4 #btn4-2 {top: 295px; right: 349px;}
+
+/* -------------------------이벤트 페이지------------------------- */
+#event {display: flex; justify-content: center; z-index: 400; background: url("../svg/8event/backgrond8.svg") no-repeat center; 
+    -webkit-background-size: cover; -moz-background-size: cover;-o-background-size: cover; background-size: cover; /* display: none; */}
+#pump {width: 950px;; top: 100px; left: -140px; z-index: 390;}
+#acter8 {width: 200px; top: 260px; right: -760px; z-index: 380;}
+#shine8 {width: 630px; top: -120px; right: -635px; z-index: 390;}
+
+/* wave 버튼위치 */
+#wavebtn8 {top: 360px; left: 520px; z-index: 400;}
+
+/* -------------------------목표 및 포부------------------------- */
+#goal {display: flex; justify-content: center; z-index: 300; background: url("../svg/9goal/background9.svg") no-repeat center; 
+    -webkit-background-size: cover; -moz-background-size: cover;-o-background-size: cover; background-size: cover; /* display: none; */}
+#stage {width: 1300px; bottom: -50px; left: -680px; z-index: 270;}
+#curtain {width: 310px; top: -70px; right: 940px; z-index: 280;} 
+#acter9 {width: 700px; top: 497px; left: -615px; z-index: 290;}
+#shine99 {width: 750px; top: 10px; left: -370px; z-index: 290;}
+
+/* wave 버튼위치 */
+#wavebtn9 {top: 507px; right: 1055px; z-index: 300;}
+
+/* 글 */
+#txtbox5 {position: relative; color: #fff; text-align: right; width: 570px; top: 260px; left: 480px;}
+#txtbox5 li span {display: block; font-size: 24px; margin-bottom: 10px;}
+#txtbox5 li h2 {font-size: 60px; font-weight: 700; margin-bottom: 30px;}
+#txtbox5 li .p_2 {font-size: 17px; line-height: 26px; margin-bottom: 25px; opacity: 0.8;}
+#txtbox5 li .font {display: flex; justify-content: space-between;}
+#txtbox5 li .after {float: left; width: 130px; text-align: center; height: 60px; font-size: 14px;}
+
+/* -------------------------마지막 페이지------------------------- */
+#end {display: flex; justify-content: center; z-index: 200; background: url("../svg/10end/background10.svg") no-repeat center; 
+    -webkit-background-size: cover; -moz-background-size: cover;-o-background-size: cover; background-size: cover;}
+#group2 {position: relative; width: 600px; left: 50px;}    
+#group2 #acter10 {width: 477px; top: 530px; z-index: 280;}  
+#group2 #flower {width: 890px; top: 780px; left: -200px; z-index: 290;}
+#group2 #shine10-1 {height: 780px; top: 65px; left: -197px; z-index: 270;}  
+#group2 #shine10-2 {height: 780px; top: 65px; left: -30px; z-index: 270;}
+#group2 h4 {font-size: 120px; font-weight: 500; color: #fff; font-family: 'Open Sans Condensed', sans-serif; top: 250px; left: 12px;}
