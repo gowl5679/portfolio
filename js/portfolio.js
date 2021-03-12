@@ -38,11 +38,11 @@ $(document).ready(function () {
                 transitionDelay();
             }, 1000);
         } else if ($(this).is('#wavebtn8')) {
-            animation(11, '#event #pump', 'svg/8event/pumpkin_', 130);
+            animation(12, '#event #pump', 'svg/8event/pumpkin_', 130);
             $('#goal .area').addClass('in');
             transitionDelay();
         } else if ($(this).is('#wavebtn9')) {
-            animation(13, '#goal #acter9', 'svg/9goal/character9_', 130);
+            animation(15, '#goal #acter9', 'svg/9goal/character9_', 130);
             $('#end .area').addClass('in');
             transitionDelay();
         }
