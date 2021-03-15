@@ -152,7 +152,7 @@ $(document).ready(function () {
         setTimeout(function () {
             // console.log($('#' + currentScene));
             // console.log($('#' + nextScene));
-            $('#' + currentScene).stop().animate({opacity: 0}, 700, function () {
+            $('#' + currentScene).stop().animate({opacity: 0}, 500, function () {
                 $(this).css('visibility', 'hidden').find('.fade').removeClass('in').find('.effect').removeAttr('style');
                 $('body').attr('data-view', nextScene);
             });
