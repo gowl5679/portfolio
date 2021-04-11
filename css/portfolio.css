@@ -80,7 +80,7 @@ ul, li {list-style: none;}
 
 /* 로고와 소개글 */
 #cosmic {width: 1000px; top: 100px; left: -217px; z-index: 980; }
-#cosmic.on{animation: scale1 3s alternate ease-out;}
+#cosmic.on{animation: scale1 4s alternate ease-out;}
 #cosmic img {width: 200px; margin: 22px 40%;}
 #cosmic p {font-size: 17px; line-height: 24px; text-align: center; color: #fff; text-shadow: 0px 0px 5px #0e0b07;}
 
@@ -291,20 +291,18 @@ ul, li {list-style: none;}
 #txtbox2 #btn3 {top: 295px; left: 275px;}
 #txtbox2 #btn4 {top: 295px; left: 389px;}
 #txtbox2 #btn5 {top: 295px; left: 503px;}
-.mdopen_btn:hover {mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%); mask-size: 200%; animation: shine 1.5s infinite ease-out alternate; box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.746);}
-  
-@keyframes shine {
-    0% {-webkit-mask-position: 150%;}
-    100% {-webkit-mask-position: -50%; transform: translateY(7px) rotate(45deg);}
-}
+.mdopen_btn:hover {mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%); mask-size: 200%; box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.746);}
+
 
 /* 열려질 상세 모달 */
-#dim, .md_cnt {position: fixed; z-index: 690;}
+#dim, .md_cnt {position: fixed; z-index: 710;}
 #dim {display: none; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,.5);}
-.md_cnt {width: 1400px; height: 750px; visibility: hidden; background: #fff; padding: 0 5vw; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: hidden; overflow-y: scroll;}
+.md_cnt {width: 1400px; height: 800px; visibility: hidden; background: #fff; padding: 0 5vw; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: hidden; overflow-y: scroll;}
 .md_cnt .mdclose_btn {position: fixed; left: 30px; top: 30px; width: 70px; height: 70px; cursor: pointer; z-index: 700;}
-.md_cnt .mdclose_btn .border_1 {position: absolute; top: 0; width: 2px; height: 70px; transform: rotate(45deg); background: #fff;}
-.md_cnt .mdclose_btn .border_2 {position: absolute; top: 0; width: 2px; height: 70px; transform: rotate(-45deg); background: #fff;}
+.md_cnt .mdclose_btn .border_1 {position: absolute; top: 0; width: 3px; height: 70px; transform: rotate(45deg);}
+.md_cnt .mdclose_btn .border_2 {position: absolute; top: 0; width: 3px; height: 70px; transform: rotate(-45deg);}
+.black {background: #000;}
+.white {background: #fff;}
 .md_cnt img {width: 1600px; transform: translate(-6%, 0);}
 
 /* -------------------------작업물 상세페이지------------------------- */
